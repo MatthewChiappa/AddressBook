@@ -49,7 +49,11 @@ public class AddressBook implements ActionListener {
     JPanel removeButtons = new JPanel(new GridLayout(1,2));
     JPanel findButtons = new JPanel(new GridLayout(1,2));
     
-    JScrollBar scrollBar = new JScrollBar(JScrollBar.VERTICAL);
+    JScrollPane scrollBar = new JScrollPane(display);
+    display.setLineWrap(true);
+    
+    scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+    scrollBar.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
     
     //mainFrame edits
     mainFrame.setSize(320, 360);
@@ -123,8 +127,8 @@ public class AddressBook implements ActionListener {
     
     // contact display edits
     display.setEditable(false);
-    display.setPreferredSize(new Dimension(310, 300));
-    displayPanel.add(pane, BorderLayout.CENTER);
+    scrollBar.setPreferredSize(new Dimension(280, 300));
+    displayPanel.add(scrollBar, BorderLayout.CENTER);
     
     // adding everything to mainFrame
     mainFrame.add(buttons, BorderLayout.SOUTH);
